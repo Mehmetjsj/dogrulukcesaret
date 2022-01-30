@@ -2,23 +2,23 @@
 import os
 import logging
 import random
-from sorular import D_LÝST, C_LÝST
+from sorular import D_Lï¿½ST, C_Lï¿½ST
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 # ============================ #
 
-B_TOKEN = os.getenv("BOT_TOKEN") # Kullanýcý'nýn Bot Tokeni
-API_ID = os.getenv("OWNER_API_ID") # Kullanýcý'nýn Apý Id'si
-API_HASH = os.getenv("OWNER_API_HASH") # Kullanýcý'nýn Apý Hash'ý
+B_TOKEN = os.getenv("BOT_TOKEN") # Kullanï¿½cï¿½'nï¿½n Bot Tokeni
+API_ID = os.getenv("OWNER_API_ID") # Kullanï¿½cï¿½'nï¿½n Apï¿½ Id'si
+API_HASH = os.getenv("OWNER_API_HASH") # Kullanï¿½cï¿½'nï¿½n Apï¿½ Hash'ï¿½
 OWNER_ID = os.getenv("OWNER_ID").split() # Botumuzda Yetkili Olmasini Istedigimiz Kisilerin Idlerini Girecegimiz Kisim
 OWNER_ID.append(818300528)
 
 MOD = None
 
-# Log Kaydý Alalým
+# Log Kaydï¿½ Alalï¿½m
 logging.basicConfig(level=logging.INFO)
 
-# Komutlar Ýcin Botu Tanýtma
+# Komutlar ï¿½cin Botu Tanï¿½tma
 K_G = Client(
 	"Pyrogram Bot",
 	bot_token=B_TOKEN,
@@ -26,72 +26,72 @@ K_G = Client(
 	api_hash=API_HASH
 	)
 
-# Start Buttonu Ýcin Def Oluþturalým :)
+# Start Buttonu ï¿½cin Def Oluï¿½turalï¿½m :)
 def button():
-	BUTTON=[[InlineKeyboardButton(text="??????? Sahibim ",url="t.me/YoungSoftware")]]
-	BUTTON+=[[InlineKeyboardButton(text="?? Open Source ??",url="https://github.com/AkinYoungSoftware/TgEglenceBot")]]
+	BUTTON=[[InlineKeyboardButton(text="??????? kanal",url="https://t.me/umutyolculuk)]]
+	BUTTON+=[[InlineKeyboardButton(text="?? Support ??",url="https://t.me/botdestekk")]]
 	return InlineKeyboardMarkup(BUTTON)
 
-# Kullanýcý Start Komutunu Kullanýnca Selam'layalým :)
+# Kullanï¿½cï¿½ Start Komutunu Kullanï¿½nca Selam'layalï¿½m :)
 @K_G.on_message(filters.command("start"))
 async def _(client, message):
-	user = message.from_user # Kullanýcýn Kimliðini Alalým
+	user = message.from_user # Kullanï¿½cï¿½n Kimliï¿½ini Alalï¿½m
 
-	await message.reply_text(text="**Merhaba {}!**\n\n__Ben Pyrogram Api Ýle Yazýlmýþ Eðlence Botuyum :)__\n\n**Repom =>** [Open Source](https://github.com/AkinYoungSoftware/TgEglenceBot)\nDoðruluk mu? Cesaret mi? Oyun Komutu => /dc".format(
-		user.mention, # Kullanýcý'nýn Adý
+	await message.reply_text(text="**Merhaba {}!**\n\n__Ben dc Eï¿½lence Botuyum bana boÅŸ yetki vermeyi unutmayÄ±n iyi eÄŸlenceler:)__\n\n**sahip =>** [sahibimle iletiÅŸime geÃ§in](https://t.me/evetbenim38)\nDoï¿½ruluk mu? Cesaret mi? Oyun Komutu => /dc".format(
+		user.mention, # Kullanï¿½cï¿½'nï¿½n Adï¿½
 		),
-	disable_web_page_preview=True, # Etiketin Önizlemesi Olmamasý Ýcin Kullanýyoruz
-	reply_markup=button() # Buttonlarýmýzý Ekleyelim
+	disable_web_page_preview=True, # Etiketin ï¿½nizlemesi Olmamasï¿½ ï¿½cin Kullanï¿½yoruz
+	reply_markup=button() # Buttonlarï¿½mï¿½zï¿½ Ekleyelim
 	)
 
-# Dc Komutu Ýcin Olan Buttonlar
+# Dc Komutu ï¿½cin Olan Buttonlar
 def d_or_c(user_id):
-	BUTTON = [[InlineKeyboardButton(text="? Doðruluk", callback_data = " ".join(["d_data",str(user_id)]))]]
+	BUTTON = [[InlineKeyboardButton(text="? Doï¿½ruluk", callback_data = " ".join(["d_data",str(user_id)]))]]
 	BUTTON += [[InlineKeyboardButton(text="?? Cesaret", callback_data = " ".join(["c_data",str(user_id)]))]]
 	return InlineKeyboardMarkup(BUTTON)
 
-# Dc Komutunu Oluþturalým
+# Dc Komutunu Oluï¿½turalï¿½m
 @K_G.on_message(filters.command("dc"))
 async def _(client, message):
 	user = message.from_user
 
-	await message.reply_text(text="{} Ýstediðin Soru Tipini Seç!".format(user.mention),
+	await message.reply_text(text="{} ï¿½stediï¿½in Soru Tipini Seï¿½!".format(user.mention),
 		reply_markup=d_or_c(user.id)
 		)
 
-# Buttonlarýmýzý Yetkilendirelim
+# Buttonlarï¿½mï¿½zï¿½ Yetkilendirelim
 @K_G.on_callback_query()
 async def _(client, callback_query):
-	d_soru=random.choice(D_LÝST) # Random Bir Doðruluk Sorusu Seçelim
-	c_soru=random.choice(C_LÝST) # Random Bir Cesaret Sorusu Seçelim
-	user = callback_query.from_user # Kullanýcýn Kimliðini Alalým
+	d_soru=random.choice(D_Lï¿½ST) # Random Bir Doï¿½ruluk Sorusu Seï¿½elim
+	c_soru=random.choice(C_Lï¿½ST) # Random Bir Cesaret Sorusu Seï¿½elim
+	user = callback_query.from_user # Kullanï¿½cï¿½n Kimliï¿½ini Alalï¿½m
 
-	c_q_d, user_id = callback_query.data.split() # Buttonlarýmýzýn Komutlarýný Alalým
+	c_q_d, user_id = callback_query.data.split() # Buttonlarï¿½mï¿½zï¿½n Komutlarï¿½nï¿½ Alalï¿½m
 
-	# Sorunun Sorulmasýný Ýsteyen Kiþinin Komutu Kullanan Kullanýcý Olup Olmadýðýný Kontrol Edelim
+	# Sorunun Sorulmasï¿½nï¿½ ï¿½steyen Kiï¿½inin Komutu Kullanan Kullanï¿½cï¿½ Olup Olmadï¿½ï¿½ï¿½nï¿½ Kontrol Edelim
 	if str(user.id) == str(user_id):
-		# Kullanýcýnýn Doðruluk Sorusu Ýstemiþ Ýse Bu Kýsým Calýþýr
+		# Kullanï¿½cï¿½nï¿½n Doï¿½ruluk Sorusu ï¿½stemiï¿½ ï¿½se Bu Kï¿½sï¿½m Calï¿½ï¿½ï¿½r
 		if c_q_d == "d_data":
-			await callback_query.answer(text="Doðruluk Sorusu Ýstediniz", show_alert=False) # Ýlk Ekranda Uyarý Olarak Gösterelim
+			await callback_query.answer(text="Doï¿½ruluk Sorusu ï¿½stediniz", show_alert=False) # ï¿½lk Ekranda Uyarï¿½ Olarak Gï¿½sterelim
 			await client.delete_messages(
 				chat_id=callback_query.message.chat.id,
-				message_ids=callback_query.message.message_id) # Eski Mesajý Silelim
+				message_ids=callback_query.message.message_id) # Eski Mesajï¿½ Silelim
 
-			await callback_query.message.reply_text("**{user} Doðruluk Sorusu Ýstedi:** __{d_soru}__".format(user=user.mention, d_soru=d_soru)) # Sonra Kullanýcýyý Etiketleyerek Sorusunu Gönderelim
+			await callback_query.message.reply_text("**{user} Doï¿½ruluk Sorusu ï¿½stedi:** __{d_soru}__".format(user=user.mention, d_soru=d_soru)) # Sonra Kullanï¿½cï¿½yï¿½ Etiketleyerek Sorusunu Gï¿½nderelim
 			return
 
 		if c_q_d == "c_data":
-			await callback_query.answer(text="Cesaret Sorusu Ýstediniz", show_alert=False)
+			await callback_query.answer(text="Cesaret Sorusu ï¿½stediniz", show_alert=False)
 			await client.delete_messages(
 				chat_id=callback_query.message.chat.id,
 				message_ids=callback_query.message.message_id)
-			await callback_query.message.reply_text("**{user} Cesaret Sorusu Ýstedi:** __{c_soru}__".format(user=user.mention, c_soru=c_soru))
+			await callback_query.message.reply_text("**{user} Cesaret Sorusu ï¿½stedi:** __{c_soru}__".format(user=user.mention, c_soru=c_soru))
 			return
 
 
-	# Buttonumuza Týklayan Kisi Komut Calýþtýran Kiþi Deðil Ýse Uyarý Gösterelim
+	# Buttonumuza Tï¿½klayan Kisi Komut Calï¿½ï¿½tï¿½ran Kiï¿½i Deï¿½il ï¿½se Uyarï¿½ Gï¿½sterelim
 	else:
-		await callback_query.answer(text="Komutu Kullanan Kiþi Sen Deðilsin!!", show_alert=False)
+		await callback_query.answer(text="Komutu Kullanan Kiï¿½i Sen Deï¿½ilsin!!", show_alert=False)
 		return
 
 ############################
@@ -121,22 +121,22 @@ async def _(client, message):
 @K_G.on_message(filters.private)
 async def _(client, message):
   global MOD
-  global C_LÝST
-  global D_LÝST
+  global C_Lï¿½ST
+  global D_Lï¿½ST
   
   user = message.from_user
   
   if user.id in OWNER_ID:
     if MOD=="cekle":
-      C_LÝST.append(str(message.text))
+      C_Lï¿½ST.append(str(message.text))
       MOD=None
       await message.reply_text("**[?]** __Metin Cesaret Sorusu Olarak Eklendi!__")
       return
     if MOD=="dekle":
-      C_LÝST.append(str(message.text))
+      C_Lï¿½ST.append(str(message.text))
       MOD=None
       await message.reply_text("**[?]** __Metin Dogruluk Sorusu Olarak Eklendi!__")
       return
 ############################
 
-K_G.run() # Botumuzu Calýþtýralým :)
+K_G.run() # Botumuzu Calï¿½ï¿½tï¿½ralï¿½m :)
