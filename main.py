@@ -37,7 +37,7 @@ def button():
 async def _(client, message):
 	user = message.from_user # Kullan�c�n Kimli�ini Alal�m
 
-	await message.reply_text(text="**Merhaba {}!**\n\n__Ben dc E�lence Botuyum bana boş yetki vermeyi unutmayın iyi eğlenceler:)__\n\n**sahip =>** [sahibimle iletişime geçin](https://t.me/evetbenim38)\nDo�ruluk mu? Cesaret mi? Oyun Komutu => /dc".format(
+	await message.reply_text(text="**Merhaba {}!**\n\n__Ben dc soru görev Botuyum bana boş yetki vermeyi unutmayın iyi eğlenceler:)__\nbu komutu kullanarak soru yada görev istiyebilirsiniz => /dc".format(
 		user.mention, # Kullan�c�'n�n Ad�
 		),
 	disable_web_page_preview=True, # Etiketin �nizlemesi Olmamas� �cin Kullan�yoruz
