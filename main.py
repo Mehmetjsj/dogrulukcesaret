@@ -2,7 +2,7 @@
 import os
 import logging
 import random
-from sorular import D_L�ST, C_L�ST
+from sorular import D_LİST, C_LİST
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 # ============================ #
