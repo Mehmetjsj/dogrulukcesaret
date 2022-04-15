@@ -121,19 +121,19 @@ async def _(client, message):
 @K_G.on_message(filters.private)
 async def _(client, message):
   global MOD
-  global C_L�ST
-  global D_L�ST
+  global C_LİST
+  global D_LİST
   
   user = message.from_user
   
   if user.id in OWNER_ID:
     if MOD=="cekle":
-      C_L�ST.append(str(message.text))
+      C_LİST.append(str(message.text))
       MOD=None
       await message.reply_text("**[?]** __Metin Cesaret Sorusu Olarak Eklendi!__")
       return
     if MOD=="dekle":
-      C_L�ST.append(str(message.text))
+      C_LİST.append(str(message.text))
       MOD=None
       await message.reply_text("**[?]** __Metin Dogruluk Sorusu Olarak Eklendi!__")
       return
