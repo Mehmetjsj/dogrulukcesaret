@@ -63,7 +63,7 @@ async def _(client, message):
 @K_G.on_callback_query()
 async def _(client, callback_query):
 	d_soru=random.choice(D_LİST) # Random Bir Do�ruluk Sorusu Se�elim
-	c_soru=random.choice(C_L�ST) # Random Bir Cesaret Sorusu Se�elim
+	c_soru=random.choice(C_LİST) # Random Bir Cesaret Sorusu Se�elim
 	user = callback_query.from_user # Kullan�c�n Kimli�ini Alal�m
 
 	c_q_d, user_id = callback_query.data.split() # Buttonlar�m�z�n Komutlar�n� Alal�m
