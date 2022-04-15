@@ -28,7 +28,7 @@ K_G = Client(
 
 # Start Buttonu �cin Def Olu�tural�m :)
 def button():
-	BUTTON=[[InlineKeyboardButton(text="??????? kanal",url="https://t.me/umutyolculuk)]]
+	BUTTON=[[InlineKeyboardButton(text="??????? kanal",url="https://t.me/umutyolculuk")]]
 	BUTTON+=[[InlineKeyboardButton(text="?? Support ??",url="https://t.me/botdestekk")]]
 	return InlineKeyboardMarkup(BUTTON)
 
